@@ -33,3 +33,7 @@ ScorpioCoing QuickStart Docker Nginx Php stack
 
 Favicons can be created by using the following
 [link](https://www.favicon-generator.org/)
+
+## MetaData
+
+Add your Company meta to the `html/env/.env-meta` file
