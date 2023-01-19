@@ -52,3 +52,6 @@ Key - Value pair system.
 Using the Key in the views(phtml) webpages  
 and according to chosen language code  
 the given translation is projected into the webpage through the controller
+
+Added the directory `trans` to the `dev` environment and modified the
+`gulpfile.js`
