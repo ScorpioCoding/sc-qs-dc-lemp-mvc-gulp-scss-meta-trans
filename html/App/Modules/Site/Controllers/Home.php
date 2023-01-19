@@ -6,6 +6,7 @@ use App\Core\Controller;
 use App\Core\View;
 
 use App\Modules\Site\Utils\Meta;
+use App\Modules\Site\Utils\Translation;
 
 
 /**
@@ -33,8 +34,11 @@ class Home extends Controller
     $viewName = $viewPath . DS;
     $viewName .= strtolower($args['controller']);
 
-    $m = new Meta($args);
-    $meta = $m->getMeta();
+
+    $meta = (new Meta($args))->getMeta();
+
+    $trans = (new Translation($args['module'], $args['lang']))->getTranslation();
+
 
 
     /*

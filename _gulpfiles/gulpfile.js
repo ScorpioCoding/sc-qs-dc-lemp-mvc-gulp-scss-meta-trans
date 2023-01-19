@@ -17,6 +17,13 @@ function copySiteViews() {
   );
 }
 
+//Translations for Site
+function copySiteTrans() {
+  return src("../dev/trans/site/**/*.json").pipe(
+    dest("../html/App/Modules/Site/Translations/")
+  );
+}
+
 function scssTask() {
   return src("../dev/scss/**/*.scss")
     .pipe(sass())
@@ -32,6 +39,7 @@ function jsTask() {
 
 function watchTask() {
   watch("../dev/views/site/**/*.phtml", copySiteViews);
+  watch("../dev/views/site/**/*.json", copySiteTrans);
   watch("../dev/img/**/*.{gif,png,jpg,jpeg,svg}", copyImages);
   watch("../dev/scss/**/*.scss", scssTask);
   watch("../dev/js/**/*.js", jsTask);
@@ -39,6 +47,7 @@ function watchTask() {
 
 exports.default = series(
   copySiteViews,
+  copySiteTrans,
   copyImages,
   scssTask,
   jsTask,
