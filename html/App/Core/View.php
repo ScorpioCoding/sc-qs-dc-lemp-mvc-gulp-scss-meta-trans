@@ -56,8 +56,7 @@ class View
 
   /*
     * Path checking at View base level - View.php
-    * @params   int     $renderOption 0,1,2
-    * @params   array   $paths
+    * @params   array   $file
     */
   public static function checkFile($file)
   {

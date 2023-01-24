@@ -4,9 +4,9 @@ namespace App\Modules\Site\Controllers;
 
 use App\Core\Controller;
 use App\Core\View;
+use App\Core\Translation;
 
 use App\Modules\Site\Utils\Meta;
-use App\Modules\Site\Utils\Translation;
 
 
 /**
@@ -25,7 +25,7 @@ class Home extends Controller
     $meta = (new Meta($args))->getMeta();
     // Translation
     $trans = array();
-    $trans = (new Translation($args['module'], $args['lang']))->getTranslation();
+    $trans = Translation::translate($args);
     // Extra data
     $data = array();
 
