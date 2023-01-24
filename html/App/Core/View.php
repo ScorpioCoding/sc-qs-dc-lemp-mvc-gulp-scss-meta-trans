@@ -2,76 +2,56 @@
 
 namespace App\Core;
 
+
+/** THE VIEW
+ * 
+ */
 class View
 {
   public function __construct()
   {
-    echo ('test within the class');
+    echo ('test within the class not static');
   }
 
-
-  /*
-	* render the view
-	* @params int 		$renderOption  (0, 1, 2)
-  * @params string 	$path
-	* @params string 	$name
-	* @params array 	$data
-	* @params array 	$trans
-  *
-  * render options are
-  *   0 - no includes
-  *   1 - include header and footer
-  *   2 - include header, navigation and footer
-	*/
-  public static function render($renderOption, $path, $name, $meta = array(), $trans  = array(), $data = array())
+  public static function setFile($args = array())
   {
+    $viewFile = PATH_MODULES;
+    $viewFile .= ucfirst($args['module']) . DS;
+    $viewFile .= 'Views' . DS;
+    $viewFile .= strtolower($args['controller']);
+    $viewFile .= '.phtml';
 
-    $paths = array(
-      1 =>
-      array(1 => $name . '.phtml'),
-      2 =>
-      array(
-        1 => $path . DS  . 'header.phtml',
-        3 => $name . '.phtml',
-        4 => $path . DS  . 'footer.phtml'
-      ),
-      3 =>
-      array(
-        1 => $path . DS  . 'header.phtml',
-        2 => $path . DS  . 'navigation.phtml',
-        3 => $name . '.phtml',
-        4 => $path . DS  . 'footer.phtml'
-      )
-
-    );
-
-    /*renderPage() is in the View.php file*/
-    self::renderPage($renderOption, $paths, $meta, $trans, $data);
+    try {
+      self::checkFile($viewFile);
+      return $viewFile;
+    } catch (NewException $e) {
+      echo $e->getErrorMsg();
+      return false;
+    }
   }
-
 
   /*
     * rendering the page - View.php
-    * @params   int    $renderOption 0,1,2
     * @params   array   $paths
     * @params   array   $data
     */
-  public static function renderPage($renderOption, $paths = array(), $meta = array(), $trans = array(), $data = array())
+  public static function render($args = array(), $meta = array(), $trans = array(), $data = array())
   {
-    if (self::checkPath($renderOption, $paths)) {
-      extract($meta);
-      extract($trans);
-      extract($data);
-      foreach ($paths[$renderOption] as $path) {
-        if (is_readable($path)) {
-          require $path;
-        } else {
-          throw new \Exception("View.php : renderPage : NO such document exits : $path");
-        }
+    try {
+      $viewFile = self::setFile($args);
+
+      if ($viewFile) {
+        extract($meta);
+        extract($trans);
+        extract($data);
+        require $viewFile;
+      } else {
+        throw new NewException("View.php : render : Rendering FAILED");
       }
-    } else
-      throw new \Exception("View.php : renderPage : the checkPath : FAILED");
-  } //END renderPage
+    } catch (NewException $e) {
+      echo $e->getErrorMsg();
+    }
+  } //END render
 
 
   /*
@@ -79,17 +59,15 @@ class View
     * @params   int     $renderOption 0,1,2
     * @params   array   $paths
     */
-  public static function checkPath($renderOption, $paths = array())
+  public static function checkFile($file)
   {
-
-    if (empty($renderOption))
-      throw new \Exception("View.php : checkPath : renderOption required !");
-    foreach ($paths[$renderOption] as $path)
-      if (!is_readable($path))
-        throw new \Exception("View.php : checkPath : File doesn't exist : $path");
-      else
-        return true;
-  } //END checkPath
+    if (!is_readable($file)) {
+      throw new NewException("View.php : checkFile : File doesn't exist in Views : $file ");
+      return false;
+    } else {
+      return true;
+    }
+  } //END checkFile
 
 
 

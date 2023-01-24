@@ -20,41 +20,25 @@ class Home extends Controller
 
   public function indexAction($args = array())
   {
-    //echo "here - home controller";
+    //MetaData
     $meta = array();
-    $trans = array();
-    $data = array();
-
-    $viewPath = PATH_MODULES;
-    $viewPath .= 'Site/Views';
-
-    $viewTemplatePath = PATH_MODULES;
-    $viewTemplatePath .= 'Site/Views/temp';
-
-    $viewName = $viewPath . DS;
-    $viewName .= strtolower($args['controller']);
-
-
     $meta = (new Meta($args))->getMeta();
-
+    // Translation
+    $trans = array();
     $trans = (new Translation($args['module'], $args['lang']))->getTranslation();
+    // Extra data
+    $data = array();
 
 
 
     /*
     * render the view
-    * @params int 		$renderOption  (1, 2, 3)
-    * @params string 	$path
-    * @params string 	$name
-    * @params array 	$data
+    * @params array 	$args
+    * @params array 	$meta
     * @params array 	$trans
-    *
-    * render options are
-    *   1 - no includes
-    *   2 - include header and footer
-    *   3 - include header, navigation and footer
+    * @params array 	$data
     */
-    View::render(2, $viewTemplatePath, $viewName, $meta, $trans, $data);
+    View::render($args, $meta, $trans, $data);
   }
 
   protected function after()
