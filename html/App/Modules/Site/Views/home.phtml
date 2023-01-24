@@ -1,10 +1,39 @@
-<main>
-  <img src="img/site/quickstart.png" alt="quickstart banner">
-  <h1>This Is the home page</h1>
-  <?= DB_TYPE ?>
-  <br>
-  <button id="btn">CLICK ME</button>
-  <p id="demo"></p>
+<!DOCTYPE html>
+<html lang="<?= $scMetaLanguage ?>" dir="ltr" color-scheme="auto">
 
-  This is my <?= $trans['menu']['home'] ?> and these are my <?= $trans['menu']['products'] ?>
-</main>
+  <head>
+    <?php include 'layout/header.phtml'; ?>
+  </head>
+
+  <body>
+
+    <header>
+      <?php include 'layout/navigation.phtml'; ?>
+    </header>
+
+
+
+
+
+
+    <main>
+      <img src="img/site/quickstart.png" alt="quickstart banner">
+      <h1>This Is the home page</h1>
+      <?= DB_TYPE ?>
+      <br>
+      <button id="btn">CLICK ME</button>
+      <p id="demo"></p>
+
+      This is my <?= $trans['menu']['home'] ?> and these are my <?= $trans['menu']['products'] ?>
+    </main>
+
+
+    <footer>
+      <?php include 'layout/footer.phtml'; ?>
+    </footer>
+
+
+    <script src="/js/<?= $scMetaPath; ?>.js"></script>
+  </body>
+
+</html>
