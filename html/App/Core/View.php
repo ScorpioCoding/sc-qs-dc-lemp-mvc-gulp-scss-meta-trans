@@ -15,9 +15,8 @@ class View
 
   public static function setFile($args = array())
   {
-    $viewFile = PATH_MODULES;
-    $viewFile .= ucfirst($args['module']) . DS;
-    $viewFile .= 'Views' . DS;
+    $viewFile = PATH_VIEWS;
+    $viewFile .= strtolower($args['module']) . DS;
     $viewFile .= strtolower($args['controller']);
     $viewFile .= '.phtml';
 
@@ -56,7 +55,8 @@ class View
 
   /*
     * Path checking at View base level - View.php
-    * @params   array   $file
+    * @params   int     $renderOption 0,1,2
+    * @params   array   $paths
     */
   public static function checkFile($file)
   {

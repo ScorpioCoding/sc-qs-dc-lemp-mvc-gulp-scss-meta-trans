@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Modules\Site\Controllers;
+namespace App\Controllers\Site;
 
 use App\Core\Controller;
 use App\Core\View;
 use App\Core\Translation;
 
-use App\Modules\Site\Utils\Meta;
+use App\Utils\Site\Meta;
 
 
 /**

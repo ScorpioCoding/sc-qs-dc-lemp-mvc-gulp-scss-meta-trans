@@ -31,9 +31,8 @@ class Translation
 
   protected static function setFile($args = array())
   {
-    $transFile = PATH_MODULES;
-    $transFile .= ucfirst($args['module']) . DS;
-    $transFile .= 'Translations' . DS;
+    $transFile = PATH_TRANS;
+    $transFile .= strtolower($args['module']) . DS;
     $transFile .= strtolower($args['lang']);
     $transFile .= '.json';
 

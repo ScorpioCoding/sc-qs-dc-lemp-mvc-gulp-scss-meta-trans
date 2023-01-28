@@ -4,24 +4,20 @@ const postcss = require("gulp-postcss");
 const cssNano = require("cssnano");
 const terser = require("gulp-terser");
 
+//Views for Site
+function copyViews() {
+  return src("../dev/views/**/*.phtml").pipe(dest("../html/App/Views/"));
+}
+
 function copyImages() {
   return src("../dev/img/**/*.{gif,png,jpg,jpeg,svg}").pipe(
     dest("../html/public/img/")
   );
 }
 
-//Views for Site
-function copySiteViews() {
-  return src("../dev/views/site/**/*.phtml").pipe(
-    dest("../html/App/Modules/Site/Views/")
-  );
-}
-
 //Translations for Site
 function copySiteTrans() {
-  return src("../dev/trans/site/**/*.json").pipe(
-    dest("../html/App/Modules/Site/Translations/")
-  );
+  return src("../dev/trans/**/*.json").pipe(dest("../html/App/Translations/"));
 }
 
 function scssTask() {
@@ -38,7 +34,7 @@ function jsTask() {
 }
 
 function watchTask() {
-  watch("../dev/views/site/**/*.phtml", copySiteViews);
+  watch("../dev/views/**/*.phtml", copyViews);
   watch("../dev/views/site/**/*.json", copySiteTrans);
   watch("../dev/img/**/*.{gif,png,jpg,jpeg,svg}", copyImages);
   watch("../dev/scss/**/*.scss", scssTask);
@@ -46,7 +42,7 @@ function watchTask() {
 }
 
 exports.default = series(
-  copySiteViews,
+  copyViews,
   copySiteTrans,
   copyImages,
   scssTask,
