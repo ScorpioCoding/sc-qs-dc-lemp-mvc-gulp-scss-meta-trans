@@ -54,6 +54,7 @@ class Meta
       'scMetaController'              =>    '', //gets modified by the requested controller
       'scMetaAction'                  =>    '', //gets modified by the requested controller
       'scMetaPath'                    =>    '', //gets modified by the requested controller
+      'scMetaCharset'                 =>    $html_encoding,
       'scMetaGoogleSiteVerification'  =>    $google_verification_code,
       'scMetaDescription'             =>    $company_description,
       'scMetaKeywords'                =>    $company_keywords,

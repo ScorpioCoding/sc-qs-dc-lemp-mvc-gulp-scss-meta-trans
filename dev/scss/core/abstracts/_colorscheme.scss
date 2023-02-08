@@ -13,10 +13,10 @@
   --txt-dark: hsl(var(--brand-hue) var(--brand-sat) 10%);
 
   //Fixed scorpiocoding surface colors
-  // --surface-1: hsl(var(--grey-hue) var(--grey-sat) 80%); //light
-  // --surface-2: hsl(var(--grey-hue) var(--grey-sat) 60%); //normal
-  // --surface-3: hsl(var(--grey-hue) var(--grey-sat) 40%); //medium
-  // --surface-4: hsl(var(--grey-hue) var(--grey-sat) 20%); //dark
+  --surface-1: hsl(var(--grey-hue) var(--grey-sat) 80%); //light
+  --surface-2: hsl(var(--grey-hue) var(--grey-sat) 60%); //normal
+  --surface-3: hsl(var(--grey-hue) var(--grey-sat) 40%); //medium
+  --surface-4: hsl(var(--grey-hue) var(--grey-sat) 20%); //dark
 }
 
 @media (prefers-color-scheme: light) {
@@ -27,10 +27,10 @@
     --txt-change: hsl(var(--brand-hue) var(--brand-sat) 10%);
     --txt-dim: hsl(var(--brand-hue) 30% 30%);
 
-    --surface-1: hsl(var(--brand-hue) 20% 89%); //light 20% 89%
-    --surface-2: hsl(var(--brand-hue) 57% 82%); //normal 20% 82%
-    --surface-3: hsl(var(--brand-hue) 25% 75%); //medium 25% 75%
-    --surface-4: hsl(var(--brand-hue) 25% 70%); //dark 25% 70%
+    --surface-5: hsl(var(--brand-hue) 20% 89%); //light 20% 89%
+    --surface-6: hsl(var(--brand-hue) 57% 82%); //normal 20% 82%
+    --surface-7: hsl(var(--brand-hue) 25% 75%); //medium 25% 75%
+    --surface-8: hsl(var(--brand-hue) 25% 70%); //dark 25% 70%
     --shadow: var(--brand-hue) 10% 20%;
     --shadow-strength: 0.02;
   }
@@ -43,10 +43,10 @@
     --txt-change: hsl(var(--brand-hue) calc(var(--brand-sat) / 2) 85%);
     --txt-dim: hsl(var(--brand-hue) 5% 65%);
 
-    --surface-1: hsl(var(--brand-hue) 5% 25%); //light 5% 25%
-    --surface-2: hsl(var(--brand-hue) 5% 20%); //normal 5% 20%
-    --surface-3: hsl(var(--brand-hue) 10% 15%); //medium 10% 15%
-    --surface-4: hsl(var(--brand-hue) 10% 10%); //dark 10% 10%
+    --surface-5: hsl(var(--brand-hue) 5% 25%); //light 5% 25%
+    --surface-6: hsl(var(--brand-hue) 5% 20%); //normal 5% 20%
+    --surface-7: hsl(var(--brand-hue) 10% 15%); //medium 10% 15%
+    --surface-8: hsl(var(--brand-hue) 10% 10%); //dark 10% 10%
     --shadow: var(--brand-hue) 50% 3%;
     --shadow-strength: 0.7;
   }
