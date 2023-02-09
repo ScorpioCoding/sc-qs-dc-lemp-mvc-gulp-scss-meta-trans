@@ -16,7 +16,7 @@ class Meta
 
   protected function loadMeta()
   {
-    (new DotEnv(PATH_ENV . '.env-meta'))->load();
+    (new DotEnv(PATH_ENV . 'meta.env'))->load();
 
 
     $company_name = getenv('COMPANY_NAME');
