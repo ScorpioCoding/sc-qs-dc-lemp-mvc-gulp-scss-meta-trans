@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang='en'>
 
-  <head>
-    <?php include 'layout/header.phtml' ?>
-  </head>
+<head>
+  <?php include 'layout/header.phtml' ?>
+</head>
 
-  <body>
+<body>
 
+  <div class="grid-layout">
     <header>
       <?php include 'layout/navigation.phtml' ?>
     </header>
-
-
-    <?php include $page ?>
-
-
+    <main>
+      <?php include $page ?>
+    </main>
     <footer>
       <?php include 'layout/footer.phtml' ?>
     </footer>
+  </div>
 
-    <script src="/js/site/home.js"></script>
-  </body>
+  <!-- <script src="/js/site/home.js"></script> -->
+  <script src="/js/<?= $scMetaPath; ?>.js">
+  </script>
+</body>
 
 </html>

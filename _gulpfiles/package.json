@@ -10,6 +10,6 @@
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
-    "sass": "^1.58.3"
+    "sass": "^1.60.0"
   }
 }

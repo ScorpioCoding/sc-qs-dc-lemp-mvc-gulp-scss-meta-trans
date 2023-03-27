@@ -2,8 +2,7 @@
 @use '../core/abstracts';
 @use '../core/base';
 @use '../core/components';
-
-@use 'layout';
+@use '../core/layout';
 
 :root {
   --body-bg-clr: var(--surface-3);

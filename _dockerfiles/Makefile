@@ -9,6 +9,8 @@ help:
 	@echo "                          Build, Create and Start containers"
 	@echo " make down:               docker compose down"
 	@echo "                          Stop and remove containers, networks"
+	@echo " make down-o:             docker compose down --remove-orphans"
+	@echo "                          Stop and remove containers, networks and orphans"
 	@echo " make down-v:             docker compose down -v"
 	@echo "                          Stop and remove containers, networks and volumes"
 	@echo " make list:               docker compose ps"
@@ -37,6 +39,11 @@ up-b:
 down:
 	@echo "docker compose down"
 	docker compose down
+	
+# make down
+down-o:
+	@echo "docker compose down --remove-orphans"
+	docker compose down --remove-orphans
 
 #make down-v {volume also}
 down-v:
